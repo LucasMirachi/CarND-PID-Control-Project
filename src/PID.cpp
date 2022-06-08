@@ -8,10 +8,14 @@ PID::PID() {}
 
 PID::~PID() {}
 
-void PID::Init(double Kp_, double Ki_, double Kd_) {
+void PID::Init(double Kp, double Ki, double Kd) {
   /**
    * TODO: Initialize PID coefficients (and errors, if needed)
    */
+  PID::Kp = Kp;
+  PID::Ki = Ki;
+  PID::Kd = Kd;
+  
 
 }
 
