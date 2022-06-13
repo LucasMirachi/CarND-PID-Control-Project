@@ -34,11 +34,12 @@ void PID::UpdateError(double cte) {
   /**
    * TODO: Update PID errors based on cte.
    */
+  i_error += cte;
+  
   p_error = cte;
 
-  i_error += cte;
-
   d_error = cte - prev_cte;
+  
   prev_cte = cte;
 
   // errorSum += cte;
