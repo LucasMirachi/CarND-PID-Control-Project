@@ -69,11 +69,7 @@ i_error += cte;
 Taking into account the theory discussed about each PID component, I started tuning the values manually in order to achieve a satisfactory result (where, following the [project's rubrics](https://review.udacity.com/#!/rubrics/1972/view), no tire may leave the drivable portion of the track surface and the car may not pop up onto ledges or roll over any surfaces that would otherwise be considered unsafe if humans were in the vehicle), I got the following hyper-parameter values:
 
 ```
-pid.Init(0.1, 0.001, 1.5);
-
-/*
-
-**
+pid.Init(0.1, 0.001, 3.0); //(P, I, D)
 ```
 
 And the final result of my PID controlling the vehicle on the simulator is: 

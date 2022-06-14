@@ -40,7 +40,7 @@ int main() {
   
   //pid.Init(1.0, 0.0, 0.0); --> Proportional only
 
-  pid.Init(0.1, 0.001, 1.5);
+  pid.Init(0.1, 0.001, 3.0);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, 
                      uWS::OpCode opCode) {
