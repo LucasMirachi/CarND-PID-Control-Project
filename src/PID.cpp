@@ -21,12 +21,7 @@ void PID::Init(double Kp, double Ki, double Kd) {
   PID::i_error = 0.0;
   PID::d_error = 0.0;
 
-  prev_cte = 0.0;
-
-  // counter = 0;
-  // errorSum = 0.0;
-  // minError = std::numeric_limits<double>::max();
-  // maxError = std::numeric_limits<double>::min();
+  double prev_cte = 0.0;
 
 }
 
@@ -34,23 +29,14 @@ void PID::UpdateError(double cte) {
   /**
    * TODO: Update PID errors based on cte.
    */
-  i_error += cte;
   
-  p_error = cte;
-
-  d_error = cte - prev_cte;
+  d_error = cte - prev_cte; //differential error
   
-  prev_cte = cte;
+  p_error = cte; //proportional error
 
-  // errorSum += cte;
-  // counter++;
-
-  // if (cte > maxError){
-  //   maxError = cte;
-  // }
-  // if (cte < minError){
-  //   minError = cte;
-  // }
+  i_error += cte; //integral error
+    
+  prev_cte = cte; //update previous error
 
 }
 
@@ -58,14 +44,6 @@ double PID::TotalError() {
   /**
    * TODO: Calculate and return the total error
    */
-  double total_error = p_error * Kp + i_error * Ki + d_error * Kd;
-  return total_error;  // TODO: Add your total error calc here!
+  double total_error = - Kp * p_error - Ki * i_error - Kd * d_error;
+  return total_error;  
 }
-
-// double PID::MinError() {
-//   return minError;
-// }
-
-// double PID::MaxError() {
-//   return maxError;
-// }
